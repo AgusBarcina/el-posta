@@ -1,0 +1,72 @@
+/* Cada producto en fila (imagen, detalles, acciones) */
+.producto {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* Imagen del producto */
+.producto img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 20px;
+}
+
+/* Contenedor para los datos del producto en línea */
+.detalles {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+  justify-content: space-between;
+}
+
+/* Título y precio en línea */
+.titulo-precio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.titulo-producto {
+  font-weight: bold;
+  font-size: 1em;
+  margin-bottom: 4px;
+}
+
+.precio {
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* Acciones (cantidad, eliminar) en línea */
+.acciones {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Botón eliminar */
+.btn-eliminar {
+  background: none;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  font-size: 0.9em;
+  padding: 4px 8px;
+}
+.lista-producto{
+    width: 100%;
+}
+
+.carrito{
+    width: 100%;
+}

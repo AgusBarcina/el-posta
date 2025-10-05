@@ -1,0 +1,53 @@
+/* Header principal como contenedor */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* separa en extremos */
+  padding: 10px 30px;
+  border-bottom: 1px solid black;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white; /* para que no se vea transparente */
+  box-shadow: 0 2px 5px rgb(252, 3, 3);
+}
+
+/* Título alineado a la izquierda */
+header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+/* Menú en el centro */
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilo de los items */
+nav li {
+  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav li:hover {
+  color: rgb(13, 13, 14); /* color hover */
+}
+
+/* Carrito a la derecha */
+.carrito img {
+  width: 40px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.carrito img:hover {
+  transform: scale(1.1); /* efecto zoom */
+}
+.logo {
+    width: 70px;
+}
