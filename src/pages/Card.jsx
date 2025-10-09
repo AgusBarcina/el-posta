@@ -4,12 +4,19 @@ import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import "./card.css";
 
 const Card = ({
+<<<<<<< HEAD
   idFirebase,
+=======
+>>>>>>> 9bdbed8 (primer commit)
   image,
   description,
   price,
   title,
   category,
+<<<<<<< HEAD
+=======
+  id,
+>>>>>>> 9bdbed8 (primer commit)
   stock,
 }) => {
   const { addProduct } = useContext(ShopContext);
@@ -46,6 +53,7 @@ const Card = ({
   };
 
   const handleAddToCart = () => {
+<<<<<<< HEAD
   addProduct({
     idFirebase,
     titulo: title,
@@ -57,6 +65,17 @@ const Card = ({
   });
 };
 
+=======
+    addProduct({
+      id,
+      img: image,
+      titulo: title,
+      precio: price,
+      description,
+      cantUnits: itemCount,
+    });
+  };
+>>>>>>> 9bdbed8 (primer commit)
 
   return (
     <div
