@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs } from "firebase/firestore";
-<<<<<<< HEAD
-import { db } from '../firebase';
-=======
 import { db } from '../firebase'; 
->>>>>>> 9bdbed8 (primer commit)
 import Card from './Card';
 import NavBar from "../Navbar/NavBar";
 
@@ -15,11 +11,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchProductos = async () => {
       try {
-<<<<<<< HEAD
         const productosRef = collection(db, "productos");
-=======
-        const productosRef = collection(db, "productos"); 
->>>>>>> 9bdbed8 (primer commit)
         const snapshot = await getDocs(productosRef);
         const productosData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         console.log(productosData);
@@ -31,26 +23,19 @@ const HomePage = () => {
 
     fetchProductos();
   }, []);
+
   const handleCategoryChange = (category) => {
     setCategoryFilter(category);
   };
 
-<<<<<<< HEAD
-  const productosFiltrados = productos.filter(p =>
-=======
   const productosFiltrados = productos.filter(p => 
->>>>>>> 9bdbed8 (primer commit)
     categoryFilter === 'todos' || p.category === categoryFilter
   );
 
   console.log("Productos: ", productos)
 
   return (
-<<<<<<< HEAD
     <div style={{ width: "100%" }}>
-=======
-    <div style={{width: "100%"}}>
->>>>>>> 9bdbed8 (primer commit)
       <NavBar onFilterChange={handleCategoryChange} />
       <br />
       <br />
@@ -65,7 +50,6 @@ const HomePage = () => {
         {productosFiltrados.map((producto, index) => (
           <Card
             key={producto.id}
-<<<<<<< HEAD
             idFirebase={producto.id}
             title={producto.title}
             price={producto.price}
@@ -74,16 +58,6 @@ const HomePage = () => {
             stock={producto.stock}
             category={producto.category}
           />
-
-=======
-            image={producto.image}
-            title={producto.title}
-            description={producto.description}
-            price={producto.price}
-            category={producto.category}
-            stock={producto.stock}
-          />
->>>>>>> 9bdbed8 (primer commit)
         ))}
       </div>
     </div>
