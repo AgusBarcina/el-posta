@@ -2,16 +2,17 @@ import React, { useContext } from 'react';
 import { ShopContext } from '../../Context/ShopContext'; // ajusta la ruta
 import { useNavigate } from 'react-router-dom';
 import './carrito.css';
+import CheckoutForm from '../../pages/CheckoutForm';
 
 const Carrito = () => {
   const { shopVec, removeProduct, updateQuantity } = useContext(ShopContext);
   const navigate = useNavigate();
 
-  const handleFinalizarPago = () => {
+  const handleCheckoutForm = () => {
     const numeroCompra = 'COMP' + Date.now();
     localStorage.setItem('numeroCompra', numeroCompra);
     console.log('Número de compra guardado:', numeroCompra);
-    navigate('/FinalizarCompra');
+    navigate('/CheckoutForm');
   };
 
   const totalPrice = shopVec.reduce(
@@ -68,7 +69,7 @@ const Carrito = () => {
             }}
           >
             <div className="precio-total">Total: ${totalPrice.toFixed(2)}</div>
-            <button className="btn-finalizar" onClick={handleFinalizarPago}>
+            <button className="btn-finalizar" onClick={handleCheckoutForm}>
               FINALIZAR PAGO
             </button>
           </div>

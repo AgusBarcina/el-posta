@@ -4,12 +4,12 @@ import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import "./card.css";
 
 const Card = ({
+  idFirebase,
   image,
   description,
   price,
   title,
   category,
-  id,
   stock,
 }) => {
   const { addProduct } = useContext(ShopContext);
@@ -46,15 +46,17 @@ const Card = ({
   };
 
   const handleAddToCart = () => {
-    addProduct({
-      id,
-      img: image,
-      titulo: title,
-      precio: price,
-      description,
-      cantUnits: itemCount,
-    });
-  };
+  addProduct({
+    idFirebase,
+    titulo: title,
+    precio: price,
+    img: image,
+    description,
+    cantUnits: itemCount,
+    stock
+  });
+};
+
 
   return (
     <div

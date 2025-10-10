@@ -6,12 +6,36 @@ const ShopProvider = ({ children }) => {
   const [shopVec, setShopVec] = useState([]);
 
   const addProduct = (product) => {
-    const uniqueId = `${product.nombre}-${Date.now()}-${Math.random()}`;
-    const productWithId = {
-      ...product,
-      id: uniqueId,
-    };
-    setShopVec(prev => [...prev, productWithId]);
+    const { idFirebase, cantUnits, stock, titulo } = product;
+
+    // Validación antes de actualizar el estado
+    const existingProduct = shopVec.find(item => item.idFirebase === idFirebase);
+
+    if (existingProduct) {
+      const currentUnits = existingProduct.cantUnits;
+      const newTotal = currentUnits + cantUnits;
+
+      if (newTotal > stock) {
+        alert(`No puedes agregar ${cantUnits} unidades más de ${titulo}. Ya tienes ${currentUnits} en el carrito y el stock máximo es ${stock}.`);
+        return; // Salgo sin actualizar estado
+      }
+    } else if (cantUnits > stock) {
+      alert(`No puedes agregar más de ${stock} unidades de ${titulo}.`);
+      return; // Salgo sin actualizar estado
+    }
+
+    // Si pasa las validaciones, actualizo el estado
+    setShopVec(prev => {
+      if (existingProduct) {
+        return prev.map(item =>
+          item.idFirebase === idFirebase
+            ? { ...item, cantUnits: item.cantUnits + cantUnits }
+            : item
+        );
+      } else {
+        return [...prev, { ...product, id: `${idFirebase}-${Date.now()}` }];
+      }
+    });
   };
 
   const removeProduct = (id) => {
@@ -44,7 +68,7 @@ const ShopProvider = ({ children }) => {
         removeProduct,
         updateQuantity,
         totalPrice,
-        totalunidades, 
+        totalunidades,
       }}
     >
       {children}

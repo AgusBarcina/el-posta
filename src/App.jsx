@@ -7,9 +7,9 @@ import Catalogo from "./pages/Catalogo";
 import ProductoDetalle from './pages/ProductoDetalle';
 import ShopPage from "../src/pages/Shopage";
 import { ShopProvider } from './Context/ShopContext';
+import CheckoutForm from './pages/CheckoutForm';
 
 import Carrito from '../src/Components/Carrito/Carrito';
-import FinalizarCompra from './pages/FinalizarCompra';
 
 const App = () => {
   const handleFilterChange = (category) => {
@@ -27,7 +27,7 @@ const App = () => {
           <Route path="/catalogo" element={<Catalogo />} />
           <Route path="/producto/:id" element={<ProductoDetalle />} />
           <Route path="/shop" element={<ShopPage />} />
-          <Route path="/FinalizarCompra" element={<FinalizarCompra />} />
+          <Route path="/CheckoutForm" element={<CheckoutForm />} />
         </Routes>
       </Router>
     </ShopProvider>

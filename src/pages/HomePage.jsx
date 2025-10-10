@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs } from "firebase/firestore";
-import { db } from '../firebase'; 
+import { db } from '../firebase';
 import Card from './Card';
 import NavBar from "../Navbar/NavBar";
 
@@ -11,7 +11,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchProductos = async () => {
       try {
-        const productosRef = collection(db, "productos"); 
+        const productosRef = collection(db, "productos");
         const snapshot = await getDocs(productosRef);
         const productosData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         console.log(productosData);
@@ -27,14 +27,14 @@ const HomePage = () => {
     setCategoryFilter(category);
   };
 
-  const productosFiltrados = productos.filter(p => 
+  const productosFiltrados = productos.filter(p =>
     categoryFilter === 'todos' || p.category === categoryFilter
   );
 
   console.log("Productos: ", productos)
 
   return (
-    <div style={{width: "100%"}}>
+    <div style={{ width: "100%" }}>
       <NavBar onFilterChange={handleCategoryChange} />
       <br />
       <br />
@@ -49,13 +49,15 @@ const HomePage = () => {
         {productosFiltrados.map((producto, index) => (
           <Card
             key={producto.id}
-            image={producto.image}
+            idFirebase={producto.id}
             title={producto.title}
-            description={producto.description}
             price={producto.price}
-            category={producto.category}
+            image={producto.image}
+            description={producto.description}
             stock={producto.stock}
+            category={producto.category}
           />
+
         ))}
       </div>
     </div>

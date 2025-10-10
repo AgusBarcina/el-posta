@@ -1,6 +1,6 @@
 // Importa las funciones necesarias
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 // Tu configuración de Firebase
 const firebaseConfig = {
@@ -19,5 +19,5 @@ const app = initializeApp(firebaseConfig);
 // Obtén la referencia a Firestore
 const db = getFirestore(app);
 
-// Exporta la referencia
-export { db };
+// Exporta la referencia y las funciones
+export { db, collection, getDocs };

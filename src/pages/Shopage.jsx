@@ -10,33 +10,15 @@ const ShopPage = () => {
   }
 
   return (
-    <div style={{ padding: '20px', width:"100%"}}>
-     <br />
+    <div style={{
+      width: "100%",
+      minHeight: "100vh",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+    }}>
       <Carrito />
-      {/*
-      {shopVec.length === 0 ? (
-        <p>El carrito está vacío.</p>
-      ) : (
-        <div>
-          {shopVec.map((producto) => (
-            <div
-              key={producto.id}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                padding: '15px',
-                marginBottom: '20px',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                borderRadius: '8px',
-              }}
-            >
-              <CartItem product={producto} />
-            </div>
-          ))}
-        </div>
-      )}
-      */}
-      <h2>Total: ${totalPrice.toFixed(2)}</h2>
     </div>
   );
 };
